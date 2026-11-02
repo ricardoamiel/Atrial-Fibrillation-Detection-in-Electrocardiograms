@@ -1,0 +1,42 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=2em
+\begin{document}
+
+\title{Atrial Fibrillation Detection in Intensive Care Electrocardiograms: Reproducing Handcrafted Feature Benchmarks and an Explainable Extension with Wavelet and Radon Transforms}
+
+\author{Ricardo Acuña
+\thanks{R. Acuña is with Universidad de Ingeniería y Tecnología (UTEC), Lima, Perú. Course project proposal for EL5308, Topics on Biological Signal Processing I, 2026.}}
+
+\maketitle
+
+\noindent\textbf{Abstract:} Atrial fibrillation (AF) is the most common arrhythmia in the intensive care unit (ICU), and its automatic detection is hindered by noise, patient motion and the reduced lead set of bedside monitors. This project reproduces the results of Nassar et al.~\cite{nassar2025}, who released a labelled dataset of 596 four lead ICU electrocardiograms (ECGs) and compared classifiers built on handcrafted features, convolutional networks and ECG foundation models. The reproduction focuses on the feature based approach. Signals from the public PhysioNet/CinC 2021 Challenge~\cite{reyna2021} are filtered with a zero phase 5 to 30~Hz Butterworth bandpass filter and resampled to 240~Hz. R peaks are then detected, and 27 features per lead are computed, including time domain heart rate variability, Poincaré and entropy features. These features train the same models as the original study: k nearest neighbours, multilayer perceptron, support vector machine, logistic regression, random forest, LightGBM, XGBoost and CatBoost. The models are tested on the ICU set with AUROC, AUPRC, F1 score, specificity, balanced accuracy and the Matthews correlation coefficient. The analysis is then extended with tools from the course. The discrete wavelet transform yields subband energies and entropies of the ECG and of the RR interval series, and the continuous wavelet scaleogram describes atrial activity. The Radon transform, applied to recurrence plots and scaleograms, gives orientation features that separate regular from irregular rhythm. Fourier analysis estimates the dominant frequency of fibrillatory waves, and the Cramér Rao lower bound limits the variance of heart rate estimates from 10~s windows. Finally, SHAP values explain which features drive each decision, so that the model can be read in clinical practice. We expect wavelet and Radon features to improve on heart rate variability features alone, mainly on short or noisy recordings.
+
+\medskip
+\noindent\textbf{Index Terms:} atrial fibrillation, electrocardiogram, intensive care, wavelet transform, Radon transform, explainability, machine learning.
+
+\section{Base Article and Data}
+The base article is~\cite{nassar2025}, from the group of P.~Abolmaesumi and P.~Mousavi. Its best feature based model trained on PhysioNet data reaches F1 $=0.84$ (SVM) on the ICU test set, which is the reference to reproduce. Two datasets are used: the Kingston ICU AF dataset (596 records, 240~Hz, leads I, II, III and V1, restricted access on PhysioNet) and the open PhysioNet/CinC 2021 training set (about 70{,}000 records after label filtering), from which leads I, II, III and V1 are kept.
+
+\section{Planned Methodology}
+\textbf{Reproduction:} preprocessing, R peak detection with SleepECG, features with NeuroKit2, min max scaling and the eight classifiers, under the paper's configurations: training on the ICU half split (n $=298$) and training on PhysioNet, both tested on the ICU test set.
+
+\textbf{Extension:} wavelet multiresolution features, Radon projections of recurrence plots and scaleograms, spectral features of the atrial band, the Cramér Rao bound for heart rate estimation, bootstrap confidence intervals and SHAP explanations.
+
+\textbf{Deliverables:} an executed Jupyter notebook and a report written with the IEEE journal template.
+
+\begin{thebibliography}{1}
+\bibitem{nassar2025}
+S.~Nassar et al., ``A dataset and benchmarks for atrial fibrillation detection from electrocardiograms of intensive care unit patients,'' arXiv:2512.18031, 2025.
+
+\bibitem{reyna2021}
+M.~A. Reyna et al., ``Will two do? Varying dimensions in electrocardiography: the PhysioNet/Computing in Cardiology Challenge 2021,'' in Proc. Comput. Cardiol., vol.~48, 2021.
+\end{thebibliography}
+
+\end{document}
