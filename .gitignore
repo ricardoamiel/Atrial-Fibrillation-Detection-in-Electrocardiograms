@@ -1,0 +1,39 @@
+# Entorno de Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Datos: Kingston es de acceso restringido (acuerdo de uso de PhysioNet) y los públicos pesan 9 GB
+data/
+
+# Salidas pesadas o derivadas de registros individuales de la UCI
+resultados/pred/
+resultados/*.joblib
+catboost_info/
+logs/
+
+# Generadores de figuras y del cuaderno (uso local)
+scripts/figuras_informe.py
+scripts/construir_cuaderno.py
+
+# Artículo base (derechos del autor; se cita por arXiv)
+paper/
+
+# Auxiliares de LaTeX
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+
+# Sistema
+.DS_Store
+*~
+
+# README anterior en español (uso local)
+Previous-README.md
