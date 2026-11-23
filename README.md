@@ -2,7 +2,7 @@
 
 Reproduction of the handcrafted feature benchmark of Nassar et al. (arXiv:2512.18031) and an explainable extension with wavelet, Radon, spectral, and Cramér Rao analysis.
 
-**Author:** Ricardo A. Acuña-Villogas, Department of Data Science, Universidad de Ingeniería y Tecnología (UTEC), Lima, Peru.
+**Authors:** Ricardo A. Acuña-Villogas and Yanelit Picon Huaman, Universidad de Ingeniería y Tecnología (UTEC), Lima, Peru.
 Final project of EL5308 Biological Signals, 2026. Full report: [informe/report.pdf](informe/report.pdf).
 
 ## Motivation

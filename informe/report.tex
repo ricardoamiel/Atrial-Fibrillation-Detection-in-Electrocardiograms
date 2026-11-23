@@ -1,4 +1,5 @@
-\documentclass[journal]{IEEEtran}
+\documentclass[conference,a4paper]{IEEEtran}
+\IEEEoverridecommandlockouts
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
@@ -17,17 +18,27 @@
 
 \title{Atrial Fibrillation Detection in Intensive Care Electrocardiograms: Reproducing Handcrafted Feature Benchmarks and an Explainable Extension with Wavelet and Radon Transforms}
 
-\author{Ricardo~A.~Acuña-Villogas%
-\thanks{R. A. Acuña-Villogas is with the Department of Data Science, Universidad de Ingeniería y Tecnología (UTEC), Barranco, Lima, Peru (email: ricardo.acuna@utec.edu.pe). This work is the final project of the course EL5308 Biological Signals.}}
-
-\markboth{EL5308 Biological Signals, Final Project, 2026}{Acuña-Villogas: Atrial Fibrillation Detection in ICU ECGs}
+\author{\IEEEauthorblockN{Ricardo A. Acuña-Villogas}
+\IEEEauthorblockA{\textit{Department of Data Science} \\
+\textit{Universidad de Ingeniería y Tecnología (UTEC)}\\
+Lima, Peru \\
+ricardo.acuna@utec.edu.pe}
+\and
+\IEEEauthorblockN{Yanelit Picon Huaman}
+\IEEEauthorblockA{\textit{Universidad de Ingeniería y Tecnología (UTEC)}\\
+Lima, Peru \\
+yanelit.picon@utec.edu.pe}
+}
 
 \maketitle
 
-\noindent\textbf{Abstract:} Atrial fibrillation (AF) is the most frequent arrhythmia in the intensive care unit (ICU). Nassar et al. released the first public ICU AF dataset and benchmarks, without code. This work reproduces their feature based benchmark: 27 features per lead are extracted from 70\,203 PhysioNet/CinC 2021 recordings and 596 ICU recordings, and eight classifiers are trained under the two original configurations. The reproduced metrics deviate by at most 0.02 in AUROC and by 0.02 in mean F1, and confirm that logistic regression is the only model whose AUROC (0.97) survives the shift to ICU data. The study is extended with wavelet energies, Radon projections of recurrence plots, the atrial residual spectrum, a Cramér Rao analysis of heart rate estimation, and SHAP explanations. The kurtosis of the 45 degree Radon projection is the most discriminative of 172 features in both domains, the atrial dominant frequency lies between 5 and 8 Hz in AF, and heart rate estimation attains the Cramér Rao bound up to 20 ms of jitter. Under domain shift, the extended features raise the AUROC of CatBoost from 0.935 to 0.959. SHAP shows that the models rely first on absent P waves, a cue that weakens in the ICU.
+\begin{abstract}
+Atrial fibrillation (AF) is the most frequent arrhythmia in the intensive care unit (ICU). Nassar et al. released the first public ICU AF dataset and benchmarks, without code. This work reproduces their feature based benchmark: 27 features per lead are extracted from 70\,203 PhysioNet/CinC 2021 recordings and 596 ICU recordings, and eight classifiers are trained under the two original configurations. The reproduced metrics deviate by at most 0.02 in AUROC and by 0.02 in mean F1, and confirm that logistic regression is the only model whose AUROC (0.97) survives the shift to ICU data. The study is extended with wavelet energies, Radon projections of recurrence plots, the atrial residual spectrum, a Cramér Rao analysis of heart rate estimation, and SHAP explanations. The kurtosis of the 45 degree Radon projection is the most discriminative of 172 features in both domains, the atrial dominant frequency lies between 5 and 8 Hz in AF, and heart rate estimation attains the Cramér Rao bound up to 20 ms of jitter. Under domain shift, the extended features raise the AUROC of CatBoost from 0.935 to 0.959. SHAP shows that the models rely first on absent P waves, a cue that weakens in the ICU.
+\end{abstract}
 
-\medskip
-\noindent\textbf{Index Terms:} atrial fibrillation, electrocardiogram, intensive care unit, reproducibility, wavelet transform, Radon transform, recurrence plot, Cramér Rao bound, explainability, SHAP.
+\begin{IEEEkeywords}
+atrial fibrillation, electrocardiogram, intensive care unit, reproducibility, wavelet transform, Radon transform, recurrence plot, Cramér Rao bound, explainability, SHAP
+\end{IEEEkeywords}
 
 \section{Introduction}
 \label{sec:intro}
