@@ -3,7 +3,7 @@
 Reproduction of the handcrafted feature benchmark of Nassar et al. (arXiv:2512.18031) and an explainable extension with wavelet, Radon, spectral, and Cramér Rao analysis.
 
 **Authors:** Ricardo A. Acuña-Villogas and Yanelit Picon Huaman, Universidad de Ingeniería y Tecnología (UTEC), Lima, Peru.
-Final project of EL5308 Biological Signals, 2026. Full report: [informe/report.pdf](informe/report.pdf).
+Final project of EL5308 Biological Signals, 2026. Full report: [informe/report.pdf](informe/report.pdf). Slides: [online](https://ricardoamiel.github.io/Atrial-Fibrillation-Detection-in-Electrocardiograms/) and [PPTX](presentacion/Presentacion_FA_UCI.pptx).
 
 ## Motivation
 

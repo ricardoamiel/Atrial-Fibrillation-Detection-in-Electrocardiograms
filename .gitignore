@@ -37,3 +37,12 @@ paper/
 
 # README anterior en español (uso local)
 Previous-README.md
+
+# Plantillas del curso y esbozo del informe (uso local)
+*.zip
+*.docx
+informe/informe_esbozo.*
+
+# Generador y recursos de la presentación (uso local); se publican el PPTX y el HTML
+presentacion/generador/
+presentacion/assets/
